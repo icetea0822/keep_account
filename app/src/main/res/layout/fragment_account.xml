@@ -1,0 +1,335 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.shengzidong.keepacounts.MainActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="#40E0D0" />
+
+    <LinearLayout
+        android:id="@+id/rlInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/shape"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/rlChoose"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@drawable/shape"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvChoose"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/shape"
+                android:gravity="center_horizontal"
+                android:text="选择类别"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tvChoose"
+                android:layout_alignRight="@+id/tvChoose"
+                android:layout_below="@+id/tvChoose"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/ibDate"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_horizontal"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/icon_date" />
+
+                <ImageButton
+                    android:id="@+id/ibLabel"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_horizontal"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/icon_label" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@drawable/shape"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvMoney"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/shape"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="输入金额"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tvMoney"
+                android:layout_alignRight="@+id/tvMoney"
+                android:layout_below="@+id/tvMoney"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/ibMessage"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_horizontal"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/icon_message" />
+
+
+                <ImageButton
+                    android:id="@+id/ibLocation"
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_horizontal"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/location_selector" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnOk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@null"
+                android:text="OK"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rlInput"
+        android:orientation="horizontal">
+
+        <ListView
+            android:id="@+id/lvCategory"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.3"
+            android:background="#2C2E2F"></ListView>
+
+        <android.support.v7.widget.GridLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            app:columnCount="3">
+
+            <ImageButton
+                android:id="@+id/ibNumber_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/number_07"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+            <ImageButton
+                android:id="@+id/ibNumber_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/number_08"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+            <ImageButton
+                android:id="@+id/ibNumber_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/number_09"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+
+            <ImageButton
+                android:id="@+id/ibNumber_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/number_04"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+            <ImageButton
+                android:id="@+id/ibNumber_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/number_05"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+            <ImageButton
+                android:id="@+id/ibNumber_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/number_06"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+            <ImageButton
+                android:id="@+id/ibNumber_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/number_01"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+            <ImageButton
+                android:id="@+id/ibNumber_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/number_02"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+            <ImageButton
+                android:id="@+id/ibNumber_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/number_03"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+            <ImageButton
+                android:id="@+id/ibNumber_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/number_00"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+            <ImageButton
+                android:id="@+id/ibNumber_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/number_point"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+            <ImageButton
+                android:id="@+id/ibNumber_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/number_delete"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+            <ImageButton
+                android:id="@+id/ibNumber_plus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/number_plus"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+            <ImageButton
+                android:id="@+id/ibNumber_minus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/number_minus"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+
+            <ImageButton
+                android:id="@+id/ibNumber_equals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/number_equals"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1" />
+        </android.support.v7.widget.GridLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
